@@ -1,0 +1,28 @@
+import { createContext, useContext } from "react";
+
+const QuizContext = createContext();
+
+function useQuiz(){
+    const context =  useContext(quizContext);
+
+    if (context === undefined)
+        throw new Error("You used context outside the provider range");
+
+    return context;
+}
+
+function QuizProvider({children}){
+    // state & logic
+
+    const value = {
+        // exported states and action 
+    }
+
+    return(
+        <QuizContext value={value}>
+            {children}
+        </QuizContext>
+    )
+}
+
+export {QuizProvider, useQuiz}
